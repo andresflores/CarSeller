@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  brand: 
+  vehicle_type: 
+  customer: 
+
+two:
+  name: MyString
+  brand: 
+  vehicle_type: 
+  customer: 

@@ -1,0 +1,24 @@
+<%= form_for(@vehicle_type) do |f| %>
+  <% if @vehicle_type.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h2><%= pluralize(@vehicle_type.errors.count, "error") %> No se pudo guardar!:</h2>
+
+        <ul>
+        <% @vehicle_type.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

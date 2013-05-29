@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @brand.name %>
+</p>
+
+<ul>
+	<% @brand.vehicles.each do|v| %>
+	<li><%= v.name %></li>
+	<% end -%>
+</ul>
+
+<p>
+	<%= @brand.vehicle_ids.inspect %>
+</p>
+
+<ul>
+	<% @brand.customers.each do|c| %>
+	<li><%= c.name %></li>
+	<% end -%>
+</ul>
+
+
+<%= link_to 'Edit', edit_brand_path(@brand) %> |
+<%= link_to 'Back', brands_path %>

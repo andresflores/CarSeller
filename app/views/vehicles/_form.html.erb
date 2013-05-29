@@ -1,0 +1,51 @@
+<%= form_for(@vehicle) do |f| %>
+  <% if @vehicle.errors.any? %>
+  <div class="alert alert-error">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vehicle.errors.count, "errores encontrados") %> ! No se pudo guardar!</h2>
+      <ul>
+      <% @vehicle.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="field">
+    Nombre<br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    Marca<br />
+    <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+  </div>
+  <div class="field">
+    Tipo de vehiculo<br />
+    <%= f.collection_select :vehicle_type_id, VehicleType.all, :id, :name %>
+  </div>
+  <div class="field">
+    Dueño<br />
+    <%= f.collection_select :customer_id, Customer.all, :id, :name %>
+  </div>
+  <div class="field">
+    Precio<br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    Kilometros (sin puntos ni comas)<br />
+    <%= f.text_field :km %>
+  </div>
+  <div class="field">
+    Tipo de combustible<br />
+    <%= f.text_field :type_fuel %>
+  </div>
+  <div class="field">
+    Año<br />
+    <%= f.text_field :year %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

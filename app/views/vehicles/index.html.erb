@@ -1,0 +1,87 @@
+<h4>Lista de vehiculos</h4>
+
+
+
+
+<table class="table table-hover table-striped">
+  <tr>
+    <th><h4> Dolar oficial compra <%=dolar_oficial_compra%>   </h4></th>
+    <th> <h4> Dolar blue compra <%=dolar_blue_compra%>   </h4> </th>
+   
+    
+  </tr>
+   <tr>
+   <th><h4> Dolar oficial venta <%=dolar_oficial_venta%>   </h4></th>
+    
+    <th><h4> Dolar blue venta <%=dolar_blue_venta%>   </h4></th>
+    
+  </tr>
+
+</table>
+
+
+
+
+<table class="table table-hover table-striped">
+  <tr>
+    <th>Tipo</th>
+    <th>Modelo</th>
+    <th>Tipo</th>
+    <th>Cliente</th>
+    <th>Precio Dolar</th>
+    <th>Precio Pesos</th>
+    <th>Km</th>
+    <th>Combustible</th>
+    <th>Año</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  </tr>
+<% @vehicles.each do |vehicle| %>
+  <tr class="<%= cycle :success %> ">
+    <td><%= vehicle.brand.name %></td>
+    <td><%= vehicle.name %></td>
+    <td><%= vehicle.vehicle_type.name %></td>
+    <td><%= vehicle.customer.name %></td>
+    <td><%= vehicle.price %></td>
+    <td><%= vehicle.price_to_blue %></td>
+     <td><%= vehicle.amount_in_pesos %></td>
+
+
+     
+    <td><%= vehicle.km %></td>
+    <td><%= vehicle.type_fuel %></td>
+    <td><%= vehicle.year %></td>
+
+    <td><button class: 'btn btn-warning'><%= link_to 'Editar', edit_vehicle_path(vehicle) %></button></td>
+    <td><button class: 'btn btn-danger'><%= link_to 'Eliminar', vehicle, method: :delete, data: { confirm: 'Esta seguro?' } %></button></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to icon('plus')+'Nuevo Vehiculo', new_vehicle_path, class: 'btn btn-success' %>
+
+
+<table class="table table-hover table-striped">
+  <tr>
+    <th>Nombre</th>
+    <th>Precio</th>
+    <th>Descripcion</th>
+   
+  </tr>
+
+  </tr>
+  <% @accessories.each do | a | %>
+  <tr class="<%= cycle :success %> ">
+    <td><%= a.name %></td>
+    <td><%= a.price %></td>
+    <td><%= a.Description %></td>
+  
+  </tr>
+ <% end %>
+  </tbody>
+</table>

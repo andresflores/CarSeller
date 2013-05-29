@@ -1,0 +1,25 @@
+<h3>Tipos de vehiculos</h3>
+
+<table class="table table-hover table-striped">
+  <tr>
+    <th>Tipo</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @vehicle_types.each do |vehicle_type| %>
+  <tr class="<%= cycle :success %> ">
+    <td><%= vehicle_type.name %></td>
+    <td><button type="button" class: "btn btn-info"><%= link_to 'Ver', vehicle_type %></button></td>
+    <td><button type="button" class: 'btn btn-warning'><%= link_to 'Editar', edit_vehicle_type_path(vehicle_type) %></button></td>
+    <td><button type="button" class: 'btn btn-danger'><%= link_to 'Eliminar', vehicle_type, method: :delete, data: { confirm: 'Esta seguro?' } %></button></td>
+
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+
+<%= link_to icon('plus')+'Nuevo tipo de vehiculo', new_vehicle_type_path, class: 'btn btn-success' %>
